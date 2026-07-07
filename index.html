@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IE Study • Course Materials Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .navbar {
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-area img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+    .logo-text h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+    .logo-text span {
+      font-size: 0.7rem;
+      color: #64748b;
+    }
+    .ref-links {
+      display: flex;
+      gap: 12px;
+    }
+    .ref-links a {
+      color: #3b82f6;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .ref-links a:hover {
+      background: #eff6ff;
+    }
+
+    .main-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px;
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .sidebar {
+      flex: 1.2;
+      min-width: 320px;
+      background: white;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      padding: 20px 0;
+      height: fit-content;
+      position: sticky;
+      top: 90px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .sidebar-title {
+      padding: 0 20px 16px 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #1e293b;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 8px;
+    }
+
+    .semester-group {
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .semester-btn {
+      width: 100%;
+      background: transparent;
+      border: none;
+      text-align: left;
+      padding: 14px 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.2s;
+    }
+    .semester-btn:hover {
+      background: #f8fafc;
+    }
+    .semester-content {
+      display: none;
+      padding: 4px 12px 16px 20px;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .semester-content.open {
+      display: flex;
+    }
+    .file-item {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-bottom: 6px;
+      cursor: pointer;
+      border: 1px solid #e2e8f0;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+    .file-item:hover {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      transform: translateX(4px);
+    }
+    .file-name {
+      word-break: break-word;
+      flex: 1;
+      color: #334155;
+    }
+
+    .viewer {
+      flex: 3;
+      background: white;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .viewer-header {
+      padding: 20px 28px;
+      border-bottom: 1px solid #e2e8f0;
+      background: white;
+    }
+    .viewer-header h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .viewer-header p {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-top: 6px;
+    }
+    .pdf-container {
+      flex: 1;
+      min-height: 550px;
+      background: #f1f5f9;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      min-height: 550px;
+    }
+    .placeholder {
+      padding: 80px 28px;
+      text-align: center;
+      color: #64748b;
+    }
+    .placeholder-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 800px) {
+      .main-container { flex-direction: column; }
+      .sidebar { position: relative; top: 0; }
+      .nav-container { padding: 12px 20px; }
+      .logo-area img { height: 32px; }
+      .logo-text h1 { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="nav-container">
+    <div class="logo-area">
+      <img src="logo.jpg" alt="IE Study Logo" onerror="this.style.display='none'; document.querySelector('.logo-text').style.marginLeft='0'">
+      <div class="logo-text">
+        <h1>IE Study</h1>
+        <span>Inline preview • Course materials</span>
+      </div>
+    </div>
+    <div class="ref-links">
+      <a href="https://ie-summary.vercel.app" target="_blank">📘 IE Summary</a>
+      <a href="https://ie-plus.vercel.app" target="_blank">⚡ IE Plus</a>
+    </div>
+  </div>
+</div>
+
+<div class="main-container">
+  <div class="sidebar">
+    <div class="sidebar-title">📂 COURSE FILES</div>
+    <div id="accordion"></div>
+  </div>
+  <div class="viewer">
+    <div class="viewer-header">
+      <h3>📄 Document preview</h3>
+      <p id="fileLabel">Select a file from the left to view inline</p>
+    </div>
+    <div class="pdf-container" id="viewerContainer">
+      <div class="placeholder">
+        <div class="placeholder-icon">📚</div>
+        <strong>Click any course material</strong><br>
+        <span style="font-size: 0.8rem;">PDF will appear here — no download required</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  // ALL YOUR EXACT FILE NAMES
+  // Place this HTML file in the SAME folder as your PDF files
+  // Also place logo.jpg in the same folder
+  // ============================================================
+  
+  const ALL_FILES = [
+    // 100 LEVEL - 1st Semester (odd course numbers)
+    "CHE 101.pdf",
+    "CVE 105 MADE EASY_DREX.pdf",
+    "GNS 101.pdf",
+    "GNS 103.pdf",
+    "ICT 101 Past question..pdf",
+    "MEE 101 past question .pdf",
+    "MTS 101.pdf",
+    "PHY 101.pdf",
+    "PHY 103.pdf",
+    // 100 LEVEL - 2nd Semester (even course numbers)
+    "CHE102 --- (1).pdf",
+    "CSC 102 ---.pdf",
+    "gns102 ----1.pdf",
+    "GNS 106 ---.docx",
+    "Mts 102 pq (1).pdf",
+    "PHY 102 ---.pdf",
+    // 200 LEVEL - 1st Semester
+    "CSC201+++ By SmartDreamer.pdf",
+    "CSP 201 LECTURE.pptx",
+    "MEE -201 PQ-2011-2012.pdf",
+    "Cve 202.pdf",
+    "EEE 202 NOTE 2021.pdf",
+    "MEE 202.pdf",
+    "mee 206 1.pdf",
+    "MTS 202 Numerical_Methods_For_Scientific_And_Eng (1).pdf",
+    // 300 LEVEL
+    "AGE 301 Questions 313 edited.pdf",
+    "ENT 301 Past Question 2016-2017 Session.pdf",
+    "MTS 316 PQ.pdf"
+  ];
+
+  // Helper: extract course code and determine level/semester
+  function extractMetadata(filename) {
+    let match = filename.match(/([A-Z]{2,4})\s*(\d{3})/i);
+    if (!match) return { level: 0, semester: 1, code: filename };
+    let num = parseInt(match[2]);
+    let level = Math.floor(num / 100) * 100;
+    let semester = (num % 2 === 1) ? 1 : 2;
+    let code = match[1].toUpperCase() + " " + num;
+    return { level, semester, code, num };
+  }
+
+  // Build file objects with metadata
+  const filesWithMeta = ALL_FILES.map(filename => {
+    const meta = extractMetadata(filename);
+    return {
+      name: filename,
+      displayName: meta.code,
+      level: meta.level,
+      semester: meta.semester
+    };
+  }).filter(f => f.level >= 100);
+
+  // Group by Level and Semester
+  const groups = {};
+  filesWithMeta.forEach(f => {
+    const semText = f.semester === 1 ? "1st Semester" : "2nd Semester";
+    const key = `${f.level} Level - ${semText}`;
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(f);
+  });
+
+  // Sort groups
+  const sortedKeys = Object.keys(groups).sort((a, b) => {
+    const levelA = parseInt(a);
+    const levelB = parseInt(b);
+    if (levelA !== levelB) return levelA - levelB;
+    const semA = a.includes("1st") ? 1 : 2;
+    const semB = b.includes("1st") ? 1 : 2;
+    return semA - semB;
+  });
+
+  // Build sidebar
+  function buildSidebar() {
+    const container = document.getElementById("accordion");
+    container.innerHTML = "";
+
+    sortedKeys.forEach(groupKey => {
+      const filesList = groups[groupKey];
+      const groupDiv = document.createElement("div");
+      groupDiv.className = "semester-group";
+
+      const btn = document.createElement("button");
+      btn.className = "semester-btn";
+      btn.innerHTML = `<span>📁 ${groupKey}</span><span class="arrow">▼</span>`;
+
+      const content = document.createElement("div");
+      content.className = "semester-content";
+
+      filesList.forEach(file => {
+        const fileItem = document.createElement("div");
+        fileItem.className = "file-item";
+        fileItem.innerHTML = `<span>📄</span><span class="file-name">${file.name}</span>`;
+        fileItem.onclick = (e) => {
+          e.stopPropagation();
+          openFile(file);
+        };
+        content.appendChild(fileItem);
+      });
+
+      btn.onclick = () => {
+        content.classList.toggle("open");
+        const arrow = btn.querySelector(".arrow");
+        arrow.innerHTML = content.classList.contains("open") ? "▲" : "▼";
+      };
+
+      groupDiv.appendChild(btn);
+      groupDiv.appendChild(content);
+      container.appendChild(groupDiv);
+
+      // Auto-open first group
+      if (sortedKeys[0] === groupKey) {
+        content.classList.add("open");
+        btn.querySelector(".arrow").innerHTML = "▲";
+      }
+    });
+  }
+
+  // Open file from current directory (same folder as HTML)
+  function openFile(file) {
+    const viewer = document.getElementById("viewerContainer");
+    const label = document.getElementById("fileLabel");
+    label.innerHTML = `📖 ${file.name}`;
+
+    // Direct path to file in the same folder
+    const filePath = encodeURIComponent(file.name);
+    
+    viewer.innerHTML = `<iframe src="${filePath}" onerror="showFileNotFound('${file.name}')" title="PDF Viewer"></iframe>`;
+  }
+
+  // Show helpful message if file not found
+  window.showFileNotFound = function(filename) {
+    const viewer = document.getElementById("viewerContainer");
+    viewer.innerHTML = `
+      <div class="placeholder">
+        <div class="placeholder-icon">⚠️</div>
+        <strong>File not found: ${filename}</strong><br>
+        <span style="font-size: 0.8rem;">
+          <br><br>
+          <strong>📁 Make sure this file is in the same folder:</strong><br>
+          <code style="background:#e2e8f0;padding:2px 6px;display:inline-block;margin-top:8px;">${filename}</code>
+        </span>
+      </div>
+    `;
+  };
+
+  // Initialize
+  buildSidebar();
+</script>
+</body>
+</html>

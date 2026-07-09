@@ -29,7 +29,7 @@
     .nav-container {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 16px 32px;
+      padding: 12px 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -46,13 +46,13 @@
       object-fit: contain;
     }
     .logo-text h1 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: #0f172a;
       line-height: 1.2;
     }
     .logo-text span {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       color: #64748b;
     }
     .ref-links {
@@ -65,6 +65,7 @@
       padding: 8px 16px;
       border-radius: 8px;
       font-weight: 500;
+      font-size: 0.85rem;
       transition: 0.2s;
     }
     .ref-links a:hover {
@@ -74,31 +75,33 @@
     .main-container {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 32px;
+      padding: 24px 32px;
       display: flex;
-      gap: 32px;
+      gap: 28px;
       flex-wrap: wrap;
     }
 
     .sidebar {
       flex: 1.2;
-      min-width: 320px;
+      min-width: 300px;
       background: white;
-      border-radius: 20px;
+      border-radius: 16px;
       border: 1px solid #e2e8f0;
-      padding: 20px 0;
+      padding: 16px 0;
       height: fit-content;
       position: sticky;
-      top: 90px;
+      top: 80px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
     }
     .sidebar-title {
-      padding: 0 20px 16px 20px;
+      padding: 0 20px 14px 20px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #1e293b;
       border-bottom: 1px solid #e2e8f0;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .semester-group {
@@ -109,8 +112,8 @@
       background: transparent;
       border: none;
       text-align: left;
-      padding: 14px 20px;
-      font-size: 0.9rem;
+      padding: 12px 20px;
+      font-size: 0.85rem;
       font-weight: 600;
       color: #1e293b;
       cursor: pointer;
@@ -124,30 +127,30 @@
     }
     .semester-content {
       display: none;
-      padding: 4px 12px 16px 20px;
+      padding: 4px 12px 14px 20px;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
     }
     .semester-content.open {
       display: flex;
     }
     .file-item {
       background: #f8fafc;
-      border-radius: 12px;
-      padding: 10px 14px;
-      margin-bottom: 6px;
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 4px;
       cursor: pointer;
       border: 1px solid #e2e8f0;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       display: flex;
       align-items: center;
-      gap: 10px;
-      transition: all 0.2s;
+      gap: 8px;
+      transition: all 0.15s;
     }
     .file-item:hover {
       background: #eff6ff;
       border-color: #3b82f6;
-      transform: translateX(4px);
+      transform: translateX(3px);
     }
     .file-name {
       word-break: break-word;
@@ -158,7 +161,7 @@
     .viewer {
       flex: 3;
       background: white;
-      border-radius: 20px;
+      border-radius: 16px;
       border: 1px solid #e2e8f0;
       overflow: hidden;
       min-height: 70vh;
@@ -167,45 +170,45 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
     .viewer-header {
-      padding: 20px 28px;
+      padding: 16px 24px;
       border-bottom: 1px solid #e2e8f0;
       background: white;
     }
     .viewer-header h3 {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
       color: #0f172a;
     }
     .viewer-header p {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: #64748b;
-      margin-top: 6px;
+      margin-top: 4px;
     }
     .pdf-container {
       flex: 1;
-      min-height: 550px;
+      min-height: 500px;
       background: #f1f5f9;
     }
     iframe {
       width: 100%;
       height: 100%;
       border: none;
-      min-height: 550px;
+      min-height: 500px;
     }
     .placeholder {
-      padding: 80px 28px;
+      padding: 60px 24px;
       text-align: center;
       color: #64748b;
     }
     .placeholder-icon {
-      font-size: 3rem;
-      margin-bottom: 16px;
+      font-size: 2.5rem;
+      margin-bottom: 12px;
     }
 
     @media (max-width: 800px) {
-      .main-container { flex-direction: column; }
-      .sidebar { position: relative; top: 0; }
-      .nav-container { padding: 12px 20px; }
+      .main-container { flex-direction: column; padding: 16px; }
+      .sidebar { position: relative; top: 0; max-height: none; }
+      .nav-container { padding: 10px 16px; }
       .logo-area img { height: 32px; }
       .logo-text h1 { font-size: 1.2rem; }
     }
@@ -216,10 +219,10 @@
 <div class="navbar">
   <div class="nav-container">
     <div class="logo-area">
-      <img src="logo.jpg" alt="IE Study Logo" onerror="this.style.display='none'; document.querySelector('.logo-text').style.marginLeft='0'">
+      <img src="logo.jpg" alt="IE Study Logo" onerror="this.style.display='none';">
       <div class="logo-text">
         <h1>IE Study</h1>
-        <span>Inline preview • Course materials</span>
+        <span>inline preview • course materials</span>
       </div>
     </div>
     <div class="ref-links">
@@ -251,13 +254,13 @@
 
 <script>
   // ============================================================
-  // ALL YOUR EXACT FILE NAMES
-  // Place this HTML file in the SAME folder as your PDF files
-  // Also place logo.jpg in the same folder
+  // ALL COURSE FILES - Auto-detects Level & Semester from course number
+  // Level: 100, 200, 300, 400, 500
+  // Semester: odd number = 1st, even number = 2nd
   // ============================================================
   
   const ALL_FILES = [
-    // 100 LEVEL - 1st Semester (odd course numbers)
+    // ===== 100 LEVEL =====
     "CHE 101.pdf",
     "CVE 105 MADE EASY_DREX.pdf",
     "GNS 101.pdf",
@@ -267,14 +270,14 @@
     "MTS 101.pdf",
     "PHY 101.pdf",
     "PHY 103.pdf",
-    // 100 LEVEL - 2nd Semester (even course numbers)
     "CHE102 --- (1).pdf",
     "CSC 102 ---.pdf",
     "gns102 ----1.pdf",
     "GNS 106 ---.docx",
     "Mts 102 pq (1).pdf",
     "PHY 102 ---.pdf",
-    // 200 LEVEL - 1st Semester
+
+    // ===== 200 LEVEL =====
     "CSC201+++ By SmartDreamer.pdf",
     "CSP 201 LECTURE.pptx",
     "MEE -201 PQ-2011-2012.pdf",
@@ -283,16 +286,50 @@
     "MEE 202.pdf",
     "mee 206 1.pdf",
     "MTS 202 Numerical_Methods_For_Scientific_And_Eng (1).pdf",
-    // 300 LEVEL
+
+    // ===== 300 LEVEL =====
+    "ICT 303_CPE 407 PQ 23-24.pdf",
+    "EEE 301-303 PQ23_24 Electronics Engineering 1.pdf",
+    "EEE 305-307-351 PQ23_24 Electrical Machines 1.pdf",
+    "EEE 308 PQ23_24 Intro to Control Systems.pdf",
+    "EEE 311 PQ23_24 Analog Comm. Principles.pdf",
+    "EEE 312 PQ23_24 Digital Comm. Principles.pdf",
+    "ICT 302 PQ23_24 Operating System.pdf",
+    "ICT 304 PQ23_24 EM Field Theory.pdf",
+    "MTS 316 PQ23_24 Engr Maths 2.pdf",
+    "MTS 316 PQ.pdf",
     "AGE 301 Questions 313 edited.pdf",
-    "ENT 301 Past Question 2016-2017 Session.pdf",
-    "MTS 316 PQ.pdf"
+    "AGE 301 PQ 2023_24.pdf",
+
+    // ===== 400 LEVEL =====
+    "ICT 403 PQ 24_25 Satellite Communication.pdf",
+    "ICT 405 PQ 24_25 Internet Technology and Programming.pdf",
+    "ICT 407 PQ 24_25 Internet of Things and Application.pdf",
+    "ICT 415 PQ 24_25 System Analysis and Modelling.pdf",
+    "EEE 405 PQ 24_25 Embedded Systems.pdf",
+    "EEE 419 (Digital Electronics and Devices).pdf",
+    "EEE 505 Digital Signal Processing 23-24, 24-25.pdf",
+    "ICT 501 Java Tech and Prog. 23-24, 24-25.pdf",
+    "ICT 503 Cyberpreneurship and Cyberlaw 23-24, 24-25 (1).pdf",
+    "ICT 503 Cyberpreneurship and Cyberlaw 23-24, 24-25.pdf",
+    "ICT 505 Data Comm & Networks 23-24, 24-25.pdf",
+    "ICT 507 Elect & ICT Installation 23-24, 24-25.pdf",
+    "ICT 509 Data Structure and Algorithm 23-24, 24-25.pdf",
+    "ICT 511 Random Process and Q-Theory 24-25.pdf",
+    "CPE 510 Computer Security Techniques 23-24, 24-25.pdf",
+    "EEE 508 Optical Comm. 23-24, 24-25.pdf",
+    "ICT 502 Telecomm Software Dev. 23-24, 24-25.pdf",
+    "ICT 506 Info System Analysis & Design 23-24, 24-25.pdf",
+    "ICT 504 Smart Intelligent Systems (ANN, ML) 23-24, 24-25.pdf",
+    "ICT 516 Radio Freq Spectrum 24-25.pdf",
+    "EEE 506 Reliability & Maintainability Eng. 23-24, 24-25.pdf",
+    "ICT 502 Telecomm Software Dev. 23-24, 24-25.pdf"
   ];
 
   // Helper: extract course code and determine level/semester
   function extractMetadata(filename) {
     let match = filename.match(/([A-Z]{2,4})\s*(\d{3})/i);
-    if (!match) return { level: 0, semester: 1, code: filename };
+    if (!match) return { level: 0, semester: 1, code: filename, num: 0 };
     let num = parseInt(match[2]);
     let level = Math.floor(num / 100) * 100;
     let semester = (num % 2 === 1) ? 1 : 2;
@@ -307,7 +344,8 @@
       name: filename,
       displayName: meta.code,
       level: meta.level,
-      semester: meta.semester
+      semester: meta.semester,
+      num: meta.num
     };
   }).filter(f => f.level >= 100);
 
@@ -320,7 +358,7 @@
     groups[key].push(f);
   });
 
-  // Sort groups
+  // Sort groups by level, then semester
   const sortedKeys = Object.keys(groups).sort((a, b) => {
     const levelA = parseInt(a);
     const levelB = parseInt(b);
@@ -346,6 +384,9 @@
 
       const content = document.createElement("div");
       content.className = "semester-content";
+
+      // Sort files by course number within group
+      filesList.sort((a, b) => a.num - b.num);
 
       filesList.forEach(file => {
         const fileItem = document.createElement("div");
